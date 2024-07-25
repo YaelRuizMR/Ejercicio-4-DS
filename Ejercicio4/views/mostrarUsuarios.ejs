@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web responsiva</title>
+    <link rel="stylesheet" href="css/tabla.css">
+</head>
+<body>
+    <h1>Autores de música clásica</h1>
+    <div id="conenedor">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Celular</th>
+                <th>Editar / Borrar</th>
+            </thead>
+            <tbody>
+                <% 
+                usuariosBD.forEach(usuario => {
+                %>
+                <tr>
+                    <td><%= usuario.idusuario %></td>
+                    <td><%= usuario.nombre %></td>
+                    <td><%= usuario.correo %></td>
+                    <td><%= usuario.celular %></td>
+                    <td>
+                        <a href="/editarUsuario/<%= usuario.idusuario %>">Editar</a>
+                        <a href="/borrarUsuario/<%= usuario.idusuario %>">Borrar</a>
+                    </td>
+                </tr>
+                <% 
+                });
+                %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
